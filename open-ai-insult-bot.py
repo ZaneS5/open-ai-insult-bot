@@ -11,7 +11,6 @@ PERSONALITIES = {1: "You're Ronda Wrench, a rough and tuble female mechanic who 
                  4: "You're Sherlock Holmes, a brilliant detective who is always one step ahead of everyone else",
                  5: "You're Dora the Explorer, a curious and adventurous young girl who solves problems"}
 
-
 def get_client():
     dotenv.load_dotenv()
     api_key = os.getenv("API_KEY")
@@ -19,7 +18,6 @@ def get_client():
     # Initialize the client with your API key
     client = openai.Client(api_key=api_key)
     return client
-
 
 def get_response(client, prompt, personality=PERSONALITIES[random.randint(1, len(PERSONALITIES))]):
     # Create a completion request
@@ -33,7 +31,6 @@ def get_response(client, prompt, personality=PERSONALITIES[random.randint(1, len
     )
     return response.choices[0].message.content
 
-
 def text_to_speech(statement):
     engine = pyttsx3.init()
     engine.setProperty('volume', 0.7)
@@ -42,12 +39,10 @@ def text_to_speech(statement):
     engine.say(statement)
     engine.runAndWait()
 
-
 def main(prompt, personality=None):
     client = get_client()
     response = get_response(client, prompt, personality) if personality else get_response(client, prompt)
     text_to_speech(response)
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
