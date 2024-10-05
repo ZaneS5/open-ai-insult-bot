@@ -4,4 +4,4 @@
 - Install requirements with `pip install -r requirements.txt` for Windows for Linux/WSL use `pip3 install -r requirements.txt`
 
 ## NOTES
-- Requirements 
+- Requires eSpeak to install follow install guide https://github.com/espeak-ng/espeak-ng/releases
